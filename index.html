@@ -15,7 +15,7 @@ images[3] = "https://scontent-b-iad.xx.fbcdn.net/hphotos-frc3/t1/1000401_1015153
 images[4] = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash4/t1/1233427_2298427551428_1457797835_n.jpg"
 images[5] = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn1/t1/941560_2171700823339_1280914327_n.jpg"
 
-setTimeout("changeImage()", 10000);
+setTimeout("changeImage()", 5000);
 function changeImage()
 {
     var img = document.getElementById("img");
@@ -25,8 +25,7 @@ function changeImage()
     if(x >= images.length){
         x = 0;
     } 
-
-    setTimeout("changeImage()", 10000);
+    setTimeout("changeImage()", 5000);
 }
 
 </SCRIPT>
