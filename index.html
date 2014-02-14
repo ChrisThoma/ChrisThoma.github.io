@@ -12,6 +12,8 @@ images[0] = "https://scontent-a-iad.xx.fbcdn.net/hphotos-ash2/t1/998355_22270469
 images[1] = "https://scontent-b-iad.xx.fbcdn.net/hphotos-ash3/t1/488010_10151806750425749_1257595754_n.jpg";
 images[2] = "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/t1/994633_10151757912985749_1322975894_n.jpg";
 images[3] = "https://scontent-b-iad.xx.fbcdn.net/hphotos-frc3/t1/1000401_10151532011000749_661030866_n.jpg";
+images[4] = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash4/t1/1233427_2298427551428_1457797835_n.jpg"
+images[5] = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn1/t1/941560_2171700823339_1280914327_n.jpg"
 
 setTimeout("changeImage()", 10000);
 function changeImage()
@@ -28,18 +30,6 @@ function changeImage()
     setTimeout("changeImage()", 10000);
 }
 
-function fadeImg(el, val, fade){
-    if(fade === true){
-        val--;
-    }else{
-        val ++;
-    }
-
-    if(val > 0 && val < 100){
-        el.style.opacity = val / 100;
-        setTimeout(function(){fadeImg(el, val, fade);}, 100);
-    }
-}
 </SCRIPT>
 <img id="img" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash2/t1/998355_2227046926957_1484304173_n.jpg">
 <p>
