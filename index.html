@@ -3,7 +3,43 @@
 <font face="Helvetica">
 <body style="text-align:center;background-color:#CC0066;color:white;">
 <h2 style="text-align:center;">Happy Valentine's Day, Jenna</h2>
-<img src ="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash2/t1/998355_2227046926957_1484304173_n.jpg"/>
+<SCRIPT LANGUAGE="JavaScript">
+
+NewImg = new Array (
+"https://scontent-a-iad.xx.fbcdn.net/hphotos-ash2/t1/998355_2227046926957_1484304173_n.jpg,
+"https://scontent-b-iad.xx.fbcdn.net/hphotos-ash3/t1/488010_10151806750425749_1257595754_n.jpg",
+"https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/t1/994633_10151757912985749_1322975894_n.jpg"
+"https://scontent-b-iad.xx.fbcdn.net/hphotos-frc3/t1/1000401_10151532011000749_661030866_n.jpg"
+); 
+/* as many or few images and the path to them */
+var ImgNum = 0;
+var ImgLength = NewImg.length - 1;
+var delay = 3000; /* Time delay between Slides in milliseconds */
+var lock = false;
+var run;
+function chgImg(direction) {
+ if (document.images) {
+  ImgNum = ImgNum + direction;
+  if (ImgNum > ImgLength) {  ImgNum = 0; }
+  if (ImgNum < 0) { ImgNum = ImgLength; }
+ document.getElementById('slideshow').src = NewImg[ImgNum]; 
+ }
+}
+function auto() {
+ if (lock == true) { 
+  lock = false;
+  window.clearInterval(run);
+ }
+ else if (lock == false) {
+  lock = true;
+  run = setInterval("chgImg(1)", delay);
+ }
+}
+</SCRIPT>
+<div><img src="images/1.gif" name="slideshow"><br>
+<a href="javascript:chgImg(-1)">Previous</a> &nbsp;|&nbsp; 
+<a href="javascript:auto()">Auto/Stop</a> &nbsp;|&nbsp; 
+<a href="javascript:chgImg(1)">Next</a></div>
 I love you :)
 </font>
 </body>
