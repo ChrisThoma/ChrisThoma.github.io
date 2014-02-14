@@ -13,7 +13,7 @@ images[1] = "https://scontent-b-iad.xx.fbcdn.net/hphotos-ash3/t1/488010_10151806
 images[2] = "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/t1/994633_10151757912985749_1322975894_n.jpg";
 images[3] = "https://scontent-b-iad.xx.fbcdn.net/hphotos-frc3/t1/1000401_10151532011000749_661030866_n.jpg";
 
-setTimeout("changeImage()", 3000);
+setTimeout("changeImage()", 10000);
 function changeImage()
 {
     var img = document.getElementById("img");
@@ -25,7 +25,7 @@ function changeImage()
     } 
 
     fadeImg(img, 100, true);
-    setTimeout("changeImage()", 30000);
+    setTimeout("changeImage()", 10000);
 }
 
 function fadeImg(el, val, fade){
@@ -37,7 +37,7 @@ function fadeImg(el, val, fade){
 
     if(val > 0 && val < 100){
         el.style.opacity = val / 100;
-        setTimeout(function(){fadeImg(el, val, fade);}, 10);
+        setTimeout(function(){fadeImg(el, val, fade);}, 100);
     }
 }
 </SCRIPT>
