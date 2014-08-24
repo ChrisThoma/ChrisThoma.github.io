@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- define the angular app -->
+<html ng-app="christhoma">
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+
+  <!-- SPELLS -->
+  	<script type="text/javascript" src="//code.jquery.com/jquery-2.0.2.js"></script>
+  	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+  	<script src="script.js"></script>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	  <body ng-controller="mainController">
+		<!-- Header and Navbar -->
+			<nav role="navigation" class="navbar navbar-default">
+				<div class="navbar-header">
+					<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+						<span class="sr-only">Toggle navigation</span>
+            					<span class="icon-bar"></span>
+            					<span class="icon-bar"></span>
+            					<span class="icon-bar"></span>
+        					</button>
+					<a class="navbar-brand" href="/">CHRISTHOMA</a>
+				</div>
+				<div id="navbarCollapse" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-home"></i> Home </a></li>
+						<li><a href="#projects"><i class="fa fa-shield"></i> Projects </a></li>
+						<li><a href="http://www.christhoma.tumblr.com" target="_blank"><i class="fa fa-shield"></i> Blog </a></li>
+						<!--<li><a href="#blueline"><i class="fa fa-comment"></i> BlueLine </a></li>-->
+					</ul>
+				</div>
+			</nav>
+
+		<!-- Main content and injected views -->
+		<div id="main">
+
+			<!-- angular templating -->
+			<!-- content injected here -->
+			<div ng-view></div>
+
+		</div>
+
+		<!-- Footer -->
+		<footer class="text-center">
+			<font size="1" ><a href="#saurav" style="color:#ffffff;size:1">goi</a></font>
+		</footer>
+	</body>
+</html>
