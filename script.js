@@ -31,7 +31,7 @@
 				controller 	: 'sauravController'
 			});
 
-			
+			$locationProvider.html5Mode(true);
 	});
 
 	bluelineApp.controller('mainController', function($scope) {
