@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chord Explorer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎸</text></svg>" />
+    <script type="module" crossorigin src="/chords/assets/index-1myj4Rui.js"></script>
+    <link rel="stylesheet" crossorigin href="/chords/assets/index-DkeRcDPp.css">
+  </head>
+  <body>
+    <header id="app-header">
+      <div class="header-inner">
+        <h1 class="app-title">Chord Explorer</h1>
+        <div class="controls">
+          <div class="control-group">
+            <label for="key-select">Key</label>
+            <select id="key-select"></select>
+          </div>
+          <div class="control-group">
+            <label for="scale-select">Scale</label>
+            <select id="scale-select"></select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="chord-grid"></div>
+    </main>
+
+    <footer id="progression-bar">
+      <div class="progression-header">
+        <span class="progression-label">Progression</span>
+        <div class="progression-actions">
+          <button id="custom-chord-btn" class="btn-ghost">Custom</button>
+          <button id="clear-btn" class="btn-ghost">Clear</button>
+          <button id="copy-btn" class="btn-ghost">Copy</button>
+        </div>
+      </div>
+      <div class="progression-slots" id="progression-slots">
+        <p class="progression-empty">Tap a chord card to add it</p>
+      </div>
+    </footer>
+
+    <!-- Custom chord modal -->
+    <div id="custom-modal" class="modal-backdrop" hidden>
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title">Custom Chord</h2>
+          <button id="modal-close" class="modal-close" aria-label="Close">×</button>
+        </div>
+        <p class="modal-hint">Tap a fret to place a finger. Tap the string label to toggle mute (✕) / open (○).</p>
+        <div class="fret-editor">
+          <div id="fret-grid"></div>
+        </div>
+        <div id="chord-id-result" class="chord-id-result" hidden></div>
+        <div class="modal-footer">
+          <input id="custom-chord-name" class="chord-name-input" type="text" placeholder="Name (optional, e.g. Cadd9)" maxlength="20" />
+          <button id="custom-chord-add" class="btn-accent">Add to Progression</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
