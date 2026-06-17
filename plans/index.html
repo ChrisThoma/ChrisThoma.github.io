@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Woodworking Plans — christhoma</title>
+<meta name="description" content="Free, beginner-friendly woodworking plans — full materials lists, scaled blueprints, and step-by-step instructions.">
+<style>
+  :root{
+    --ink:#241c12; --muted:#6b5d49; --accent:#a16207; --accent2:#7c4a14;
+    --paper:#fbf7ef; --card:#ffffff; --line:#e7ddcb;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  a{color:var(--accent2);text-decoration:none;}
+
+  header.hero{background:linear-gradient(160deg,#a16207,#7c4a14);color:#fff;padding:58px 0 50px;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700;opacity:.85;margin:0 0 10px;}
+  header.hero h1{font-size:clamp(32px,6vw,48px);line-height:1.05;margin:0 0 12px;font-weight:800;}
+  header.hero p{font-size:18px;max-width:60ch;margin:0;color:#fdf3e0;}
+
+  main{padding:34px 0 70px;}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}}
+
+  .plan{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
+        padding:0;overflow:hidden;transition:transform .12s ease,box-shadow .12s ease;
+        box-shadow:0 1px 2px rgba(80,60,20,.05);color:inherit;}
+  .plan:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(120,74,20,.16);}
+  .plan .bar{height:8px;}
+  .plan .body{padding:18px 20px 20px;}
+  .plan .icon{font-size:30px;line-height:1;margin-bottom:8px;}
+  .plan h2{font-size:21px;margin:0 0 6px;font-weight:800;color:var(--ink);}
+  .plan p{margin:0 0 14px;color:#4a3e2c;font-size:15px;}
+  .specs{display:flex;flex-wrap:wrap;gap:7px;}
+  .spec{font-size:12.5px;font-weight:600;color:var(--accent2);background:#f4ecdc;
+        border:1px solid var(--line);border-radius:999px;padding:4px 10px;}
+  .more{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent2);font-size:14.5px;}
+
+  .empty{grid-column:1/-1;color:var(--muted);text-align:center;padding:40px;border:1px dashed var(--line);border-radius:16px;}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 60px;color:var(--muted);font-size:14px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">christhoma.me</p>
+    <h1>Woodworking Plans</h1>
+    <p>Free, beginner-friendly build plans — each with a full materials list, scaled blueprints, and step-by-step instructions you can hand to someone with a drill and a weekend.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Plans built &amp; tested at home. 🪵</span>
+    <span><a href="/">← christhoma.me</a></span>
+  </div>
+</footer>
+
+<script>
+  /* ---------------------------------------------------------------
+     To add a new plan: drop a folder in /plans/<slug>/index.html,
+     then add one entry below. That's it.
+  --------------------------------------------------------------- */
+  const PLANS = [
+    {
+      slug: "mud-kitchen",
+      icon: "🍲",
+      title: "The Toddler Mud Kitchen",
+      blurb: "A cheap, sturdy, splinter-free outdoor mud kitchen scaled low for a 2- and 4-year-old — drop-in basin, storage shelf, and a hook backboard.",
+      accent: "#a16207",
+      specs: ["36 × 16 × 16″", "~$40–$80", "Beginner", "A weekend"]
+    }
+  ];
+
+  const grid = document.getElementById("grid");
+  if (!PLANS.length) {
+    grid.innerHTML = '<div class="empty">No plans yet — check back soon.</div>';
+  } else {
+    grid.innerHTML = PLANS.map(p => `
+      <a class="plan" href="${p.slug}/">
+        <div class="bar" style="background:${p.accent}"></div>
+        <div class="body">
+          <div class="icon">${p.icon}</div>
+          <h2>${p.title}</h2>
+          <p>${p.blurb}</p>
+          <div class="specs">${p.specs.map(s => `<span class="spec">${s}</span>`).join("")}</div>
+          <span class="more" style="color:${p.accent}">View the plan →</span>
+        </div>
+      </a>`).join("");
+  }
+</script>
+
+</body>
+</html>

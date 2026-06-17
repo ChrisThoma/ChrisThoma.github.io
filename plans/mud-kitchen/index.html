@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mud Kitchen — A Beginner's Build Plan</title>
+<meta name="description" content="A cheap, safe, beginner-friendly outdoor mud kitchen for toddlers — full materials list, cut list, scaled blueprints, and step-by-step build instructions.">
+<style>
+  :root{
+    --ink:#241c12; --muted:#6b5d49; --accent:#a16207; --accent2:#7c4a14;
+    --paper:#fbf7ef; --card:#ffffff; --line:#e7ddcb; --dim:#c0392b; --blue:#1b3a5b;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  a{color:var(--accent2);}
+
+  /* hero */
+  header.hero{background:linear-gradient(160deg,#a16207,#7c4a14);color:#fff;padding:54px 0 46px;}
+  header.hero .wrap{display:block;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700;opacity:.85;margin:0 0 10px;}
+  header.hero h1{font-size:clamp(30px,6vw,46px);line-height:1.08;margin:0 0 12px;font-weight:800;}
+  header.hero p{font-size:18px;max-width:62ch;margin:0;color:#fdf3e0;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+        border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:600;backdrop-filter:blur(2px);}
+  .chip b{font-weight:800;}
+
+  main{padding:8px 0 70px;}
+  section{margin:42px 0;}
+  h2{font-size:24px;font-weight:800;color:var(--accent2);margin:0 0 6px;
+     display:flex;align-items:baseline;gap:10px;}
+  h2 .n{font-size:14px;font-weight:700;color:#fff;background:var(--accent);
+        border-radius:8px;padding:2px 9px;}
+  h3{font-size:18px;margin:22px 0 6px;color:var(--ink);}
+  p,li{color:#352b1d;}
+  .lead{font-size:17.5px;color:#4a3e2c;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+        padding:18px 20px;box-shadow:0 1px 2px rgba(80,60,20,.04);}
+  figure{margin:16px 0 6px;}
+  figure.card{padding:16px;}
+  figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;}
+  svg{width:100%;height:auto;display:block;}
+
+  table{border-collapse:collapse;width:100%;font-size:14.5px;margin:10px 0;overflow:hidden;
+        border-radius:10px;border:1px solid var(--line);}
+  th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;}
+  th{background:#f4ecdc;color:var(--accent2);font-weight:700;}
+  tr:last-child td{border-bottom:none;}
+  td.c,th.c{text-align:center;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr;}}
+  .opt h3{margin-top:0;color:var(--accent2);}
+  .price{font-weight:800;color:var(--accent2);}
+
+  .note{background:#fff8e6;border:1px solid #f0dca0;border-radius:12px;padding:14px 16px;}
+  .note.warn{background:#fdeee8;border-color:#f2c4ad;}
+  .note b{color:var(--accent2);}
+  .note.warn b{color:#b1381a;}
+
+  ol.steps{counter-reset:step;list-style:none;padding:0;margin:0;}
+  ol.steps>li{position:relative;padding:14px 16px 14px 58px;margin:12px 0;background:var(--card);
+              border:1px solid var(--line);border-radius:12px;}
+  ol.steps>li::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;
+              width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+              font-weight:800;display:grid;place-items:center;font-size:15px;}
+  ol.steps>li h3{margin:0 0 4px;}
+
+  ul.check{list-style:none;padding:0;margin:0;}
+  ul.check li{padding:7px 0 7px 30px;position:relative;border-bottom:1px dashed var(--line);}
+  ul.check li:last-child{border-bottom:none;}
+  ul.check li::before{content:"✓";position:absolute;left:2px;top:7px;color:#2f9e44;font-weight:800;}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;margin:4px 0 14px;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;color:var(--muted);}
+  .sw{width:16px;height:12px;border-radius:2px;display:inline-block;border:1px solid #7a5c2e;}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 60px;color:var(--muted);font-size:14px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* drawing classes */
+  .wood{fill:#e3cfa3;stroke:#7a5c2e;stroke-width:1.5;}
+  .wood2{fill:#ecdcb4;stroke:#8a6d3b;stroke-width:1.2;}
+  .woodtop{fill:#d9bd86;stroke:#6f5224;stroke-width:1.6;}
+  .grnd{stroke:#5a6b3a;stroke-width:3;stroke-linecap:round;}
+  .hidden{fill:none;stroke:#566;stroke-width:1.4;stroke-dasharray:6 4;}
+  .cutline{fill:#cfe3f5;stroke:#1b3a5b;stroke-width:1.8;}
+  .lbl{font:600 12px sans-serif;fill:#1b3a5b;}
+  .sm{font:500 11px sans-serif;fill:#6b5d49;}
+  .dimL{stroke:#c0392b;stroke-width:1;fill:none;}
+  .ext{stroke:#c0392b;stroke-width:0.8;}
+  .dimt{font:700 12px sans-serif;fill:#c0392b;}
+
+  @media print{
+    header.hero{background:none;color:#000;padding:10px 0;border-bottom:2px solid #000;}
+    header.hero p,.chip{color:#000;}
+    .chip{background:none;border:1px solid #999;}
+    body{background:#fff;} .card,figure.card{box-shadow:none;}
+    section{margin:20px 0;} a{color:#000;text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs: grid + arrowheads -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <pattern id="grid10" width="10" height="10" patternUnits="userSpaceOnUse">
+    <path d="M10 0 H0 V10" fill="none" stroke="#e6edf4" stroke-width="1"/>
+  </pattern>
+  <marker id="arrowEnd" markerWidth="9" markerHeight="9" refX="7.5" refY="4" orient="auto">
+    <path d="M0,0 L8,4 L0,8 z" fill="#c0392b"/></marker>
+  <marker id="arrowStart" markerWidth="9" markerHeight="9" refX="0.5" refY="4" orient="auto">
+    <path d="M8,0 L0,4 L8,8 z" fill="#c0392b"/></marker>
+</defs></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A weekend backyard build</p>
+    <h1>The Toddler Mud Kitchen</h1>
+    <p>A cheap, sturdy, splinter-free outdoor mud kitchen you can build in a weekend with basic power tools — scaled low for a 2- and 4-year-old. Full materials, cut list, scaled blueprints, and step-by-step instructions.</p>
+    <div class="chips">
+      <span class="chip">📏 <b>36 × 16 × 16&quot;</b></span>
+      <span class="chip">👶 ages <b>2–6</b></span>
+      <span class="chip">💲 <b>~$40–80</b></span>
+      <span class="chip">🔨 <b>beginner</b></span>
+      <span class="chip">⏱️ <b>a weekend</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section>
+    <p class="lead">A mud kitchen is the ideal first woodworking project — it's forgiving (nobody minds a wonky leg), cheap, and your kids will use it hard. This plan builds a four-leg table at toddler height with a flat worktop, a <b>drop-in basin</b> for water and mud, a <b>lower storage shelf</b>, and an optional <b>backboard with hooks</b> for hanging utensils.</p>
+    <p>The default height is <b>16&quot;</b> — low enough for a 2-year-old to reach into, while a 4-year-old just bends slightly. At 16&quot; tall and 16&quot; deep it's also wide, low, and basically tip-proof. Want it taller for older kids? Just cut the legs longer (24–26&quot; for ages 7–10); nothing else changes.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span> Tools you'll need</h2>
+    <div class="card">
+      <ul>
+        <li><b>Drill/driver</b> + bits + a <b>countersink bit</b> (so screw heads sit flush — no sharp points)</li>
+        <li><b>Jigsaw</b> — the one must-have beyond a drill, for cutting the basin hole</li>
+        <li>A saw for straight cuts: <b>circular saw, miter saw, or hand saw</b> <span style="color:var(--muted)">(tip: most home stores cut lumber and plywood to size for free — bring the cut list and skip most of the sawing)</span></li>
+        <li><b>Orbital sander</b> or sandpaper + block (80 then 120 grit)</li>
+        <li>Tape measure, pencil, <b>a square</b>, and <b>clamps</b> (2–4; a huge help when working solo)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span> Materials &amp; wood choice</h2>
+    <p><b>Recommended wood: cedar.</b> Naturally rot- and insect-resistant, lightweight, splinter-friendly, and chemical-free — ideal for kids outdoors. <b>Cedar fence pickets</b> are the cheapest way to buy it. Pick one of two paths:</p>
+    <div class="twocol">
+      <div class="card opt">
+        <h3>Option A — Cheapest (cedar)</h3>
+        <p>Top &amp; shelf from cedar fence pickets; frame from 2×2 + pickets.</p>
+        <p class="price">~$35–55</p>
+        <p style="color:var(--muted);font-size:14px;margin:0">Trade-off: small gaps between top boards. Naturally weather-resistant.</p>
+      </div>
+      <div class="card opt">
+        <h3>Option B — Sturdiest top (plywood)</h3>
+        <p>Top &amp; shelf from ¾&quot; exterior plywood; frame from 2×2 + 1×4.</p>
+        <p class="price">~$55–80</p>
+        <p style="color:var(--muted);font-size:14px;margin:0">Solid flat surface, easiest basin cutout. The cut list below uses this option.</p>
+      </div>
+    </div>
+    <div class="note warn" style="margin-top:16px">
+      <b>On pressure-treated wood:</b> modern PT lumber is generally fine for outdoor structures, but skip it for the worktop surface kids touch constantly. Cedar or sealed plywood is the splinter-free, safer choice. Using PT only for ground-contact legs is a fine compromise.
+    </div>
+
+    <h3>Shopping list (Option B)</h3>
+    <div class="card">
+      <ul>
+        <li><b>2× eight-foot 2×2</b> — legs + backboard uprights</li>
+        <li><b>2× eight-foot 1×4</b> — rails and stretchers</li>
+        <li><b>One 4'×4' half-sheet of ¾&quot; exterior plywood</b> — worktop + shelf</li>
+        <li><b>One plastic dishpan / washing-up tub</b>, ~13×11×4&quot; — <b>buy this first</b>, you'll trace it to cut the hole</li>
+        <li><b>Exterior wood screws</b> ("deck screws"): a small box each of <b>2½&quot;</b> and <b>1⅝&quot;</b></li>
+        <li><b>Exterior wood glue</b> (e.g. Titebond III)</li>
+        <li><b>4 screw-in cup hooks</b> (backboard, optional)</li>
+        <li><b>Exterior finish</b> (see §7) · optional thrift-store bowls, pots, utensils</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span> Cut list</h2>
+    <table>
+      <thead><tr><th>Part</th><th class="c">Qty</th><th>Material</th><th>Length</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Legs</td><td class="c">4</td><td>2×2</td><td>15¼&quot;</td><td>+ ¾&quot; top = 16&quot; counter</td></tr>
+        <tr><td>End rails</td><td class="c">4</td><td>1×4</td><td>13&quot;</td><td>2 per end (top + ~4&quot; up)</td></tr>
+        <tr><td>Side stretchers</td><td class="c">4</td><td>1×4</td><td>33&quot;</td><td>front &amp; back, top + bottom</td></tr>
+        <tr><td>Worktop</td><td class="c">1</td><td>¾&quot; ext. ply</td><td>36 × 16&quot;</td><td>basin hole cut here</td></tr>
+        <tr><td>Shelf</td><td class="c">1</td><td>¾&quot; ext. ply</td><td>33 × 13&quot;</td><td>drops onto bottom rails</td></tr>
+        <tr><td>Backboard uprights</td><td class="c">2</td><td>2×2</td><td>10–12&quot;</td><td>optional</td></tr>
+        <tr><td>Backboard rail</td><td class="c">1</td><td>1×4</td><td>36&quot;</td><td>optional — holds hooks</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:14px">Lumber is sold by nominal size: a 2×2 is really 1½×1½&quot;, a 1×4 is ¾×3½&quot;. The 13&quot; and 33&quot; rails already account for the legs (36 − 1½ − 1½ = 33; 16 − 1½ − 1½ = 13). Hand this table to the store's cutting desk.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span> Blueprints</h2>
+    <p style="color:var(--muted)">All drawn to scale · grid = 1 inch.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:#d9bd86"></i> worktop / shelf (¾&quot; ply)</span>
+      <span><i class="sw" style="background:#e3cfa3"></i> legs &amp; backboard (2×2)</span>
+      <span><i class="sw" style="background:#ecdcb4"></i> rails / stretchers (1×4)</span>
+      <span><i class="sw" style="background:#cfe3f5;border-color:#1b3a5b"></i> basin cutout</span>
+      <span><i class="sw" style="background:#fff;border:1px dashed #566"></i> hidden / drop-in tub</span>
+    </div>
+
+    <figure class="card">
+      <svg viewBox="0 0 480 380" role="img" aria-label="Front elevation">
+        <rect x="0" y="0" width="480" height="380" fill="url(#grid10)"/>
+        <rect class="wood" x="80" y="40" width="15" height="120"/>
+        <rect class="wood" x="425" y="40" width="15" height="120"/>
+        <rect class="wood2" x="80" y="40" width="360" height="35"/>
+        <path d="M150,76 v9 q0,6 6,6" fill="none" stroke="#6f5224" stroke-width="2"/>
+        <path d="M223,76 v9 q0,6 6,6" fill="none" stroke="#6f5224" stroke-width="2"/>
+        <path d="M297,76 v9 q0,6 6,6" fill="none" stroke="#6f5224" stroke-width="2"/>
+        <path d="M370,76 v9 q0,6 6,6" fill="none" stroke="#6f5224" stroke-width="2"/>
+        <text class="sm" x="260" y="60" text-anchor="middle">backboard rail + cup hooks (≈26&quot; up — both kids can reach)</text>
+        <rect class="wood" x="80" y="167" width="15" height="153"/>
+        <rect class="wood" x="425" y="167" width="15" height="153"/>
+        <rect class="wood2" x="95" y="167" width="330" height="35"/>
+        <rect class="woodtop" x="80" y="158" width="360" height="9"/>
+        <rect class="wood2" x="95" y="282" width="330" height="33"/>
+        <rect class="woodtop" x="95" y="273" width="330" height="9"/>
+        <line class="grnd" x1="60" y1="320" x2="460" y2="320"/>
+        <line class="grnd" x1="70" y1="320" x2="62" y2="328" style="stroke-width:1.5"/>
+        <line class="grnd" x1="100" y1="320" x2="92" y2="328" style="stroke-width:1.5"/>
+        <line class="grnd" x1="420" y1="320" x2="412" y2="328" style="stroke-width:1.5"/>
+        <line class="grnd" x1="450" y1="320" x2="442" y2="328" style="stroke-width:1.5"/>
+        <text class="lbl" x="260" y="190" text-anchor="middle">worktop</text>
+        <text class="lbl" x="260" y="296" text-anchor="middle">lower shelf</text>
+        <line class="ext" x1="80" y1="320" x2="80" y2="352"/>
+        <line class="ext" x1="440" y1="320" x2="440" y2="352"/>
+        <line class="dimL" x1="80" y1="348" x2="440" y2="348" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <rect x="245" y="338" width="30" height="14" fill="#fff"/>
+        <text class="dimt" x="260" y="345" text-anchor="middle">36&quot;</text>
+        <line class="ext" x1="80" y1="320" x2="48" y2="320"/>
+        <line class="ext" x1="80" y1="158" x2="48" y2="158"/>
+        <line class="dimL" x1="56" y1="320" x2="56" y2="158" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <text class="dimt" x="44" y="242" text-anchor="middle" transform="rotate(-90 44 242)">16&quot;</text>
+        <line class="ext" x1="80" y1="40" x2="48" y2="40"/>
+        <line class="dimL" x1="56" y1="158" x2="56" y2="40" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <text class="dimt" x="44" y="100" text-anchor="middle" transform="rotate(-90 44 100)">12&quot;</text>
+        <line class="ext" x1="425" y1="320" x2="466" y2="320"/>
+        <line class="ext" x1="425" y1="273" x2="466" y2="273"/>
+        <line class="dimL" x1="460" y1="320" x2="460" y2="273" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <text class="dimt" x="472" y="300" text-anchor="middle" transform="rotate(-90 472 300)">≈4&quot;</text>
+      </svg>
+      <figcaption><b>Front elevation</b> (the 36&quot; side). Counter sits 16&quot; off the ground; backboard adds 12&quot; for hanging utensils within little arms' reach.</figcaption>
+    </figure>
+
+    <div class="twocol">
+      <figure class="card">
+        <svg viewBox="0 0 360 380" role="img" aria-label="Side elevation">
+          <rect x="0" y="0" width="360" height="380" fill="url(#grid10)"/>
+          <rect class="wood" x="225" y="40" width="15" height="127"/>
+          <rect class="wood2" x="223" y="40" width="19" height="22"/>
+          <rect class="wood" x="80" y="167" width="15" height="153"/>
+          <rect class="wood" x="225" y="167" width="15" height="153"/>
+          <rect class="wood2" x="95" y="167" width="130" height="35"/>
+          <rect class="woodtop" x="80" y="158" width="160" height="9"/>
+          <rect class="wood2" x="95" y="282" width="130" height="33"/>
+          <rect class="woodtop" x="95" y="273" width="130" height="9"/>
+          <path class="hidden" d="M118,167 L210,167 L202,210 Q200,216 194,216 L134,216 Q128,216 126,210 Z"/>
+          <line x1="118" y1="167" x2="210" y2="167" stroke="#1b3a5b" stroke-width="1.4"/>
+          <text class="sm" x="305" y="186" text-anchor="middle">drop-in</text>
+          <text class="sm" x="305" y="199" text-anchor="middle">basin</text>
+          <line class="ext" x1="210" y1="192" x2="278" y2="192" style="stroke:#566"/>
+          <line class="grnd" x1="60" y1="320" x2="280" y2="320"/>
+          <line class="grnd" x1="70" y1="320" x2="62" y2="328" style="stroke-width:1.5"/>
+          <line class="grnd" x1="250" y1="320" x2="242" y2="328" style="stroke-width:1.5"/>
+          <text class="lbl" x="290" y="55" text-anchor="middle">backboard</text>
+          <text class="sm" x="160" y="305" text-anchor="middle">shelf</text>
+          <line class="ext" x1="80" y1="320" x2="80" y2="352"/>
+          <line class="ext" x1="240" y1="320" x2="240" y2="352"/>
+          <line class="dimL" x1="80" y1="348" x2="240" y2="348" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+          <rect x="145" y="338" width="30" height="14" fill="#fff"/>
+          <text class="dimt" x="160" y="345" text-anchor="middle">16&quot;</text>
+          <line class="ext" x1="80" y1="320" x2="48" y2="320"/>
+          <line class="ext" x1="80" y1="158" x2="48" y2="158"/>
+          <line class="dimL" x1="56" y1="320" x2="56" y2="158" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+          <text class="dimt" x="44" y="242" text-anchor="middle" transform="rotate(-90 44 242)">16&quot;</text>
+        </svg>
+        <figcaption><b>Side elevation</b> (16&quot; deep). Front is on the left; backboard rises at the back. Dashed shape = the tub hanging into the cavity.</figcaption>
+      </figure>
+
+      <figure class="card">
+        <svg viewBox="0 0 380 380" role="img" aria-label="Plywood cutting diagram">
+          <rect x="0" y="0" width="380" height="380" fill="url(#grid10)"/>
+          <rect x="40" y="40" width="288" height="288" fill="#f3ead2" stroke="#6f5224" stroke-width="2"/>
+          <rect class="woodtop" x="40" y="40" width="216" height="96"/>
+          <text class="lbl" x="148" y="84" text-anchor="middle">WORKTOP</text>
+          <text class="sm" x="148" y="100" text-anchor="middle">36 × 16</text>
+          <rect class="woodtop" x="40" y="148" width="198" height="78"/>
+          <text class="lbl" x="139" y="184" text-anchor="middle">SHELF</text>
+          <text class="sm" x="139" y="200" text-anchor="middle">33 × 13</text>
+          <text class="sm" x="184" y="300" text-anchor="middle">leftover (braces / a second basin lip)</text>
+          <line class="ext" x1="40" y1="40" x2="40" y2="22"/>
+          <line class="ext" x1="328" y1="40" x2="328" y2="22"/>
+          <line class="dimL" x1="40" y1="28" x2="328" y2="28" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+          <text class="dimt" x="184" y="20" text-anchor="middle">48&quot;</text>
+          <line class="ext" x1="40" y1="40" x2="22" y2="40"/>
+          <line class="ext" x1="40" y1="328" x2="22" y2="328"/>
+          <line class="dimL" x1="28" y1="40" x2="28" y2="328" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+          <text class="dimt" x="16" y="184" text-anchor="middle" transform="rotate(-90 16 184)">48&quot;</text>
+        </svg>
+        <figcaption><b>Plywood cut diagram.</b> Both panels come out of one 4'×4' half-sheet of ¾&quot; exterior plywood.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="card">
+      <svg viewBox="0 0 500 280" role="img" aria-label="Top view with basin cutout">
+        <rect x="0" y="0" width="500" height="280" fill="url(#grid10)"/>
+        <rect class="woodtop" x="80" y="60" width="360" height="160"/>
+        <rect class="wood" x="80" y="60" width="360" height="15" opacity="0.85"/>
+        <text class="sm" x="260" y="51" text-anchor="middle">BACK — backboard mounts along this edge</text>
+        <text class="sm" x="260" y="240" text-anchor="middle">FRONT (kids stand here)</text>
+        <rect class="hidden" x="200" y="86" width="120" height="100" rx="10"/>
+        <rect class="cutline" x="210" y="96" width="100" height="80" rx="8"/>
+        <text class="lbl" x="260" y="140" text-anchor="middle">cut</text>
+        <line class="ext" x1="320" y1="86" x2="372" y2="86" style="stroke:#566"/>
+        <text class="sm" x="430" y="89" text-anchor="middle">trace tub rim</text>
+        <line class="ext" x1="310" y1="120" x2="372" y2="120" style="stroke:#1b3a5b"/>
+        <text class="sm" x="430" y="123" text-anchor="middle">cut 1&quot; inside</text>
+        <line class="ext" x1="80" y1="220" x2="80" y2="252"/>
+        <line class="ext" x1="440" y1="220" x2="440" y2="252"/>
+        <line class="dimL" x1="80" y1="248" x2="440" y2="248" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <rect x="245" y="238" width="30" height="14" fill="#fff"/>
+        <text class="dimt" x="260" y="245" text-anchor="middle">36&quot;</text>
+        <line class="ext" x1="80" y1="60" x2="48" y2="60"/>
+        <line class="ext" x1="80" y1="220" x2="48" y2="220"/>
+        <line class="dimL" x1="56" y1="60" x2="56" y2="220" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+        <text class="dimt" x="44" y="140" text-anchor="middle" transform="rotate(-90 44 140)">16&quot;</text>
+      </svg>
+      <figcaption><b>Top view — basin cutout.</b> Trace your actual tub's rim (dashed), then cut 1&quot; inside that line (solid) so the tub hangs by its lip. Sit it toward the back.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span> Build steps</h2>
+    <div class="note"><b>Before assembly:</b> sand every piece — faces, edges, and especially ends — with 80 then 120 grit, and round over all corners until smooth to a bare hand. With toddlers this is the single most important safety step. <b>Always pre-drill + countersink</b> so heads sit flush, and add a bead of <b>exterior glue</b> to every joint. Use 2½&quot; screws into leg ends, 1⅝&quot; for thinner attachments.</div>
+
+    <ol class="steps">
+      <li><h3>Build the two end frames</h3>Each end = 2 legs + 2 of the 13&quot; rails, forming a flat ladder. Lay 2 legs 13&quot; apart (outer width 16&quot;). Attach the top rail flush with the leg tops, and the bottom rail ~4&quot; up. 2 screws per joint; check square. Make two identical frames.</li>
+      <li><h3>Connect the ends with the 33&quot; stretchers</h3>Stand both frames upright, 33&quot; apart. Attach the four 33&quot; stretchers along the front and back: two at the top (flush with leg tops — these carry the worktop) and two at the bottom, level with the bottom rails. Glue + 2 screws per end. You now have a rigid base — check it doesn't wobble.</li>
+      <li><h3>Drop in the shelf</h3>The four bottom pieces form a rectangular ledge. Set the 33 × 13&quot; shelf onto it and fix with a few 1⅝&quot; screws. Optional: drill a couple of ½&quot; drainage holes.</li>
+      <li><h3>Attach the worktop</h3>Center the 36 × 16&quot; worktop on top, flush or with a tiny even overhang. Screw down through the top into the legs and top stretchers; countersink well.</li>
+      <li><h3>Cut the basin hole</h3>Set the tub upside-down where you want it (toward the back) and trace the rim. Draw a second line ~1&quot; inside — that inner line is your cut line. Drill a ½&quot; starter hole inside it, poke the jigsaw in, and cut the inner line. Test-fit so the tub hangs by its rim, then sand the cut edge smooth.</li>
+      <li><h3>Add the backboard (optional)</h3>Screw the two 10–12&quot; uprights to the back legs pointing up, add the 36&quot; rail across their tops, and screw in cup hooks for spoons, ladles, and sieves.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span> Safety checklist</h2>
+    <div class="card">
+      <ul class="check">
+        <li>All edges and corners <b>rounded and sanded</b> — run a bare hand over everything</li>
+        <li><b>No screw points</b> protruding; all heads countersunk flush</li>
+        <li>Table <b>doesn't wobble or tip</b> — load the low shelf with heavy buckets to keep the weight low; place on flat ground</li>
+        <li>Basin cut edge sanded smooth; tub seated securely</li>
+        <li>Finish <b>fully cured</b> before the kids dig in</li>
+        <li>Re-check screws and sand any rough spots once a season</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span> Finishing</h2>
+    <div class="twocol">
+      <div class="card"><h3>Easiest &amp; safe</h3><p>Leave cedar <b>unfinished</b> — it weathers to a soft silver-gray and resists rot on its own. Totally fine for a play table.</p></div>
+      <div class="card"><h3>For protection</h3><p>A <b>water-based exterior sealer</b> (low-VOC) or a <b>non-toxic outdoor oil</b> (tung / "outdoor" wood oil). Thin coats; let it <b>fully cure</b> (a few days). Avoid solvent-heavy stains on surfaces kids handle.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">8</span> Easy upgrades for later</h2>
+    <div class="card">
+      <ul>
+        <li>A second basin hole — one for water, one for mud "prep"</li>
+        <li>An old <b>faucet</b> screwed to the backboard (play-only — looks like magic to kids)</li>
+        <li>A chalkboard-painted panel for "menus"</li>
+        <li>A small bucket hung on a hook for tools</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Built for two muddy kids in Pittsburgh. 🪵</span>
+    <span><a href="../">← All woodworking plans</a> · <a href="/">christhoma.me</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
